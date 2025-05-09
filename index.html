@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genetically Modified Organisms (GMOs)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --secondary-color: #ffd54f;
+            --secondary-light: #ffff81;
+            --secondary-dark: #c8a415;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f9f9f9;
+            --bg-medium: #e8f5e9;
+            --bg-gradient: linear-gradient(135deg, #43a047, #1b5e20);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .top {
+           color: #34853a;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-light);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        /* Header styles */
+        header {
+            background: var(--bg-gradient);
+            color: var(--text-light);
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/300');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+        
+        .header-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath fill='%23f9f9f9' d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25'%3E%3C/path%3E%3Cpath fill='%23f9f9f9' d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5'%3E%3C/path%3E%3Cpath fill='%23f9f9f9' d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        /* Introduction section */
+        .intro {
+            background-color: var(--bg-light);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-item {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            display: inline-block;
+        }
+        
+        .timeline-item h3 {
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .timeline-item i {
+            color: var(--secondary-color);
+        }
+        
+        /* Main content */
+        .main-content {
+            padding: 4rem 0;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h2 i {
+            color: var(--secondary-color);
+        }
+        
+        .section p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Process visualization */
+        .process-image {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .process-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .process-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .process-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 1rem;
+        }
+        
+        /* Pros and Cons section */
+        .pros-cons-heading {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+        
+        .pros-cons-heading h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            display: inline-block;
+        }
+        
+        .pros-cons-heading h2:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .pros-cons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .pros, .cons {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .pros:hover, .cons:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pros {
+            border-top: 5px solid #4caf50;
+        }
+        
+        .cons {
+            border-top: 5px solid #f44336;
+        }
+        
+        .pros h2, .cons h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pros h2 {
+            color: #4caf50;
+        }
+        
+        .cons h2 {
+            color: #f44336;
+        }
+        
+        .pros h2 i, .cons h2 i {
+            font-size: 1.5rem;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        li strong {
+            color: var(--primary-dark);
+        }
+        
+        /* Controversy section */
+        .controversy {
+            background-color: #fff8e1;
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .controversy h2 i {
+            color: var(--secondary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            transform: rotate(180deg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath fill='%23333333' d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25'%3E%3C/path%3E%3Cpath fill='%23333333' d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5'%3E%3C/path%3E%3Cpath fill='%23333333' d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .intro h2, .pros-cons-heading h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .pros-cons {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .header-wave, .footer-wave {
+                height: 40px;
+            }
+            
+            .intro, .main-content {
+                padding: 3rem 0;
+            }
+            
+            .section, .pros, .cons {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-overlay"></div>
+        <div class="container">
+            <div class="header-content">
+                <h1>Genetically Modified Organisms</h1>
+                <p class="top">Understanding the science, benefits, and concerns of GMOs in our modern world</p>
+            </div>
+        </div>
+        <div class="header-wave"></div>
+    </header>
+    
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>Understanding GMOs</h2>
+                <p>Genetically modified organisms (GMOs) are plants, animals, or microbes that have had their DNA changed using genetic engineering techniques. Another term for this is bioengineered foods.</p>
+                
+                <div class="timeline-item">
+                    <h3><i class="fas fa-calendar-alt"></i> First Created in 1973</h3>
+                    <p>The first genetically modified organism was created using recombinant DNA technology, marking the beginning of a new era in biotechnology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="main-content">
+        <div class="container">
+            <section class="section animate">
+                <h2><i class="fas fa-seedling"></i> Why Were GMOs Created?</h2>
+                <p>GMOs were created to improve farming and food production. They help increase crop yields, resist pests and diseases, and tolerate herbicides, reducing the need for chemicals. This innovation was designed to address global challenges like food security, environmental sustainability, and nutritional deficiencies.</p>
+            </section>
+            
+            <section class="section animate">
+                <h2><i class="fas fa-dna"></i> How GMOs Work</h2>
+                <p>Genetic modification involves altering an organism's genetic material by adding, deleting, or changing segments of its DNA. This process allows scientists to introduce specific traits that wouldn't occur naturally in the species.</p>
+                
+                <div class="process-image">
+                    <img src="Gmos.png" alt="GMO Process Diagram showing DNA extraction, gene cloning, transformation, cell culture, and plant breeding">
+                    <p class="process-caption">The process of creating genetically modified plants involves several steps including DNA extraction, gene design, transformation, and plant breeding.</p>
+                </div>
+            </section>
+            
+            <div class="pros-cons-heading">
+                <h2>Pros and Cons of GMOs</h2>
+            </div>
+            
+            <div class="pros-cons">
+                <div class="pros animate">
+                    <h2><i class="fas fa-plus-circle"></i> Potential Benefits</h2>
+                    <ul>
+                        <li>More nutritious food with enhanced vitamin content</li>
+                        <li>Tastier food with improved flavor profiles</li>
+                        <li>Disease- and drought-resistant plants that require fewer environmental resources (such as water and fertilizer)</li>
+                        <li>Insect-resistant plants that allow less use of pesticides</li>
+                        <li>Increased supply of food with reduced cost and longer shelf life</li>
+                        <li>Faster growing plants and animals to improve production efficiency</li>
+                        <li>Food with more desirable traits, such as potatoes that produce less of a cancer-causing substance when fried</li>
+                    </ul>
+                </div>
+                
+                <div class="cons animate">
+                    <h2><i class="fas fa-minus-circle"></i> Potential Concerns</h2>
+                    <ul>
+                        <li><strong>Changes in plant-biotic environment interaction:</strong>
+                            <ul>
+                                <li>Persistence and invasiveness</li>
+                                <li>Selective advantages or disadvantages</li>
+                                <li>Transfer of genes to wild relatives</li>
+                                <li>Interactions with target organisms (e.g., induction of resistance in pests)</li>
+                                <li>Interactions with non-target organisms (e.g., effects on bees and biodiversity)</li>
+                                <li>Interactions with soil ecosystem and biogeochemical effects</li>
+                            </ul>
+                        </li>
+                        <li><strong>Changes in plant-abiotic environment interaction:</strong>
+                            <ul>
+                                <li>Alterations in Greenhouse Gas Emissions</li>
+                                <li>Variations in sensitivity to climatic effects</li>
+                                <li>Modifications in sensitivity to soil abiotic factors (salinity, minerals, etc.)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Potential harm to human or animal health:</strong>
+                            <ul>
+                                <li>Toxicological effects</li>
+                                <li>Allergenicity</li>
+                                <li>Changes in nutritional value</li>
+                                <li>Transfer of antibiotic resistance</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="section controversy animate">
+                <h2><i class="fas fa-exclamation-triangle"></i> Controversies and Issues</h2>
+                <ul>
+                    <li>Creation of foods that can cause an allergic or toxic reaction</li>
+                    <li>Unexpected or harmful genetic changes</li>
+                    <li>Inadvertent transfer of genes from one GM plant or animal to another plant or animal not intended for genetic modification</li>
+                    <li>Foods that are less nutritious</li>
+                    <li>Decrease in biodiversity</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Learn More</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.fda.gov/food/agricultural-biotechnology/science-and-history-gmos-and-other-food-modification-processes" target="_blank"><i class="fas fa-external-link-alt"></i> FDA: Science and History of GMOs</a></li>
+                        <li><a href="https://medlineplus.gov/ency/article/002432.htm" target="_blank"><i class="fas fa-external-link-alt"></i> MedlinePlus: Genetically engineered foods</a></li>
+                        <li><a href="https://www.proterrafoundation.org/news/gmo-and-non-gmo-pros-and-cons/" target="_blank"><i class="fas fa-external-link-alt"></i> ProTerra Foundation: GMO and Non-GMO Pros and Cons</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>About This Website</h3>
+                    <p>This website provides educational information about Genetically Modified Organisms (GMOs), including their development, benefits, concerns, and ongoing controversies. The content is based on scientific research and aims to present a balanced view of GMOs.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 GMO Information Website | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for sections when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
